@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script type="text/javascript" >
+
+
+        function keyPress() {
+            var keyCode = event.keyCode;
+            if ((keyCode >= 48 && keyCode <= 57))
+            {
+                event.returnValue = true;
+            } else {
+                event.returnValue = false;
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<input type="text" style="ime-mode:disabled;" onpaste="return false;" onkeyup="value=value.replace(/[^\d]/g,'')"  maxlength="11"   onkeypress="keyPress()" />
+
+
+
+<!--
+style:ime-mode:disabled表示不能切换输入法
+onpaste="return false;" 表示不能粘贴
+
+重要说明：
+上述js代码中键值48－57在键值表中只是对应大键盘的0－9，而小键盘的0－9键值是96－105，那为什么也能输入呢？
+经过自己测试发现在input中，你输入的是小键盘的0－9，它所识别的keycode也是48－57
+
+-->
+
+</body>
+</html>
